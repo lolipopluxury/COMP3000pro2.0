@@ -1,29 +1,35 @@
+import React,{useEffect} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import React,{useEffect} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
 import * as Font from 'expo-font';
 import { AppLoading} from 'expo';
 
+import Charts from './pages/Charts';
+import Device from './pages/Device';
+import Setting from './pages/Setting';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Button, WhiteSpace, WingBlank, Icon, SearchBar, TabBar } from '@ant-design/react-native';
 
-function HomeScreen() {
+function ChartsScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
+    <Charts/>
+  )
+}
+
+function DeviceScreen() {
+  return (
+    <Device/>
   );
 }
 
 function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
+  return (  
+    <Setting/>
   );
 }
 
@@ -32,8 +38,7 @@ const Tab = createBottomTabNavigator();
 export default class App extends React.Component {
   constructor(){
     super()
-    this.state = {
-        selectedTab: 'home',
+    this.state = {   
         isReady: false,
     }
   }  
@@ -60,21 +65,32 @@ export default class App extends React.Component {
     }
     return (
       <NavigationContainer>    
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Navigator      
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color }) => {
+              let iconName;  
+              if (route.name === 'Device') {
+                iconName = focused
+                  ? 'windows'
+                  : 'windows';
+              } else if (route.name === 'Charts') {
+                iconName = focused ? 'dot-chart' : 'dot-chart';
+              } else if (route.name === 'Settings') {
+                iconName = focused ? 'highlight' : 'highlight';
+              }
+              return <Icon name={iconName} size={36} color={color} />;
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: '#86BD0F',
+            inactiveTintColor: 'gray',
+          }}     
+        >          
+          <Tab.Screen name="Device" component={DeviceScreen} />
+          <Tab.Screen name="Charts" component={ChartsScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer> 
     );
   }  
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
