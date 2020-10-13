@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet,Image, Text, View, ImageBackground } from 'react-native';
 
 import { Button, WhiteSpace, WingBlank, Flex, Icon, SearchBar, Progress } from '@ant-design/react-native';
 import { color } from 'react-native-reanimated';
@@ -59,6 +59,20 @@ export default class Device extends React.Component{
           <WhiteSpace size="xl" />  
           <WhiteSpace size="xl" />  
           {progressBar('Insulin reservior age', 'blue', 80)}      
+          <WhiteSpace size="xl" />  
+          <WhiteSpace size="xl" /> 
+          <Text style={{marginLeft: 30, fontWeight:'bold',color:'black', fontSize:24,}}>Activity Bar Chart</Text> 
+          <WhiteSpace size="xl" /> 
+          <View style={{marginLeft: 40}}>              
+            <ImageBackground    
+              style={{ width: 400, height:250, resizeMode: "stretch", 
+              justifyContent: "center"}}       
+              source={require('../assets/device.jpg')}
+            >
+              <Text></Text>
+            </ImageBackground>
+          </View>
+          
         </View>        
       </ScrollView>
     )
@@ -68,7 +82,7 @@ export default class Device extends React.Component{
 const styles = StyleSheet.create({
   scrollView:{
     backgroundColor:'#86BD0F',    
-    flex: 1
+    flex: 1,    
   },
   upper:{
     height: 150,   
