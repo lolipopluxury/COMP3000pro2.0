@@ -9,10 +9,10 @@ import {observer, inject} from 'mobx-react'
 @inject('store')
 @observer
 
-export default class Setting extends React.Component{
+export default class Setting extends React.Component{   
 
   click = () => {
-    console.log(this.props.store.device[0]);
+    console.log(this.props.store.deviceStore.device[0]);
   }
 
   render(){  
@@ -36,7 +36,7 @@ export default class Setting extends React.Component{
       </View>
       <View style={styles.lower}>
         <WhiteSpace size="xl" />
-        <Text>{this.props.store.device[0]}</Text>
+        {/* <Text>{this.props.store.device[0]}</Text> */}
       </View>        
     </ScrollView>
     )

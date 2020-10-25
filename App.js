@@ -4,10 +4,14 @@ import Index from './pages/Index';
 
 import deviceStore from './store/deviceStore';
 
+const storeSet = {
+  deviceStore
+}
+
 export default class App extends React.Component {  
   render(){  
     return (
-      <Provider store={deviceStore}>
+      <Provider store={storeSet}>
         <Index/>
       </Provider>
     );
