@@ -3,8 +3,19 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Button, WhiteSpace, WingBlank, Flex, Icon, SearchBar, Progress } from '@ant-design/react-native';
 
+import {observer, inject} from 'mobx-react'
+
+
+@inject('store')
+@observer
+
 export default class Setting extends React.Component{
-  render(){
+
+  click = () => {
+    console.log(this.props.store.device[0]);
+  }
+
+  render(){  
     return(
       <ScrollView 
       style={styles.scrollView}
@@ -16,7 +27,7 @@ export default class Setting extends React.Component{
       <View style={styles.upper}>
         <Flex direction="row" justify="center">
             <Flex.Item style={{flex:3}}>
-              <Text style={styles.upperTitle}>Setting</Text>
+              <Text style={styles.upperTitle} onPress={this.click}>Setting</Text>
             </Flex.Item>
             <Flex.Item>
               <Icon style={{alignSelf:'center'}} name='plus-circle' size={48} color='white'/>
@@ -25,8 +36,7 @@ export default class Setting extends React.Component{
       </View>
       <View style={styles.lower}>
         <WhiteSpace size="xl" />
-        <Text>123</Text>
-
+        <Text>{this.props.store.device[0]}</Text>
       </View>        
     </ScrollView>
     )
