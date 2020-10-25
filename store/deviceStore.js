@@ -7,13 +7,14 @@ const deviceStore = observable({
     "message": "https://images.dog.ceo/breeds/mastiff-english/4.jpg",
     "status": "success"
   },
-
+  
   async getdog() {
-    const res = await httpService.get({
+    const result = await httpService.get({
       url:`${apiConfig.baseUrl}`
-    })
-    this.dog = res    
-    return res
+    }).then((res) => {
+      console.log(res);
+      this.dog = res
+    }) 
   }
 })
 

@@ -3,43 +3,21 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Button, WhiteSpace, WingBlank, Flex, Icon, SearchBar, Progress } from '@ant-design/react-native';
 
+import {action} from 'mobx';
 import {observer, inject} from 'mobx-react'
 import httpService from '../service/httpService';
-
-// import httpService from '../service/httpService'
-
-// function click () {
-  // console.log(this.props.store.deviceStore.device[0]);
-  // console.log(httpService.get); 
-// }
 
 @inject('store')
 @observer
 
 export default class Setting extends React.Component{ 
   constructor(props){
-    super(props);
-
-    this.state = {
-      data: null,
-    };
+    super(props);   
   }
 
-  // press = async () => {
-  //   await fetch('https://dog.ceo/api/breeds/image/random')
-  //   .then((response) => response.json())
-  //   .then((responseJson) => {
-  //     console.log(responseJson);
-  //     return responseJson;
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-  // }
   press = async () => {
-    await httpService.get({
-      url:'https://dog.ceo/api/breeds/image/random'
-    })
+    await this.props.store.deviceStore.getdog()
+   
   }
 
   render(){  
@@ -63,7 +41,7 @@ export default class Setting extends React.Component{
       </View>
       <View style={styles.lower}>
         <WhiteSpace size="xl" />
-        {/* <Text>{this.props.store.device[0]}</Text> */}
+        <Text>{this.props.store.deviceStore.dog.message}</Text>
       </View>        
     </ScrollView>
     )
