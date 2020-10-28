@@ -408,7 +408,7 @@ export default class Charts extends React.Component{
     const tabPage3 = (
       <View>
         <WhiteSpace size="xl" />                 
-        <Text style={{fontSize:32, color:'gray', alignSelf:'center'}}>Today</Text>
+        <Text style={{fontSize:32, color:'gray', alignSelf:'center'}}>2020-10-07</Text>
         <WhiteSpace size="xl" />
         <ProgressChart
             data={progressChartData}
@@ -437,7 +437,7 @@ export default class Charts extends React.Component{
           <WingBlank size="lg">
           <Card>
             <Card.Header
-              title="Today"              
+              title="This week"              
               extra="97min"          
             />
             <Card.Body>
