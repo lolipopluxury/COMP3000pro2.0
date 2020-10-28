@@ -85,9 +85,9 @@ export default class Index extends React.Component {
             activeTintColor: '#86BD0F',
             inactiveTintColor: 'gray',
           }}     
-        >          
-          <Tab.Screen name="Device" component={DeviceScreen} />
+        >       
           <Tab.Screen name="Charts" component={ChartsScreen} />
+          <Tab.Screen name="Device" component={DeviceScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer> 
