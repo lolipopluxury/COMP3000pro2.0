@@ -323,7 +323,7 @@ export default class Charts extends React.Component{
 
     const progressChartData = {
       labels: ["intake", "Carbs"], 
-      data: [0.4, 0.6]
+      data: [0.3, 0.4]
     };    
 
     const tabPage2 = (
@@ -388,7 +388,7 @@ export default class Charts extends React.Component{
               backgroundGradientFrom: "#FFFFFF", //#86BD0F
               backgroundGradientTo: "#FFFFFF", //#61e926
               decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              color: (opacity = 1) => `rgba(134, 189, 15, ${opacity})`,
               labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
               style: {
                 borderRadius: 16
@@ -421,7 +421,7 @@ export default class Charts extends React.Component{
               backgroundGradientFrom: "#F2F2F2", //#86BD0F
               backgroundGradientTo: "#F2F2F2", //#61e926
               decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(255, 209, 50, ${opacity})`,
+              color: (opacity = 1) => `rgba(134, 189, 15, ${opacity})`,
               labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
               style: {
                 borderRadius: 16
